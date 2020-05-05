@@ -47,7 +47,7 @@ public class Main {
                 thbMqttClient.publish(telemetryTopic, msg);
 
                 // simulate a delay()
-                TimeUnit.MILLISECONDS.sleep(2000);
+                TimeUnit.MILLISECONDS.sleep(2000); //simula delay()
 
                 ChangeSensorValues();
 
@@ -69,7 +69,6 @@ public class Main {
         try {
             // create Mattclient
             thbMqttClient = new MqttClient(thbServer, clientId, persistence);
-            connectOptions.setMaxInflight(200);
 
             //connectOptions.setCleanSession(true);
             thbMqttClient.connect(connectOptions);
