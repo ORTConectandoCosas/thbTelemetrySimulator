@@ -2,9 +2,6 @@ package ort.cc;
 
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-import com.google.gson.*;
-
-import java.awt.event.ItemEvent;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -12,7 +9,7 @@ public class Main {
        ThingsBoard parameters for MQTT
      */
     private String thbServer = "tcp://demo.thingsboard.io:1883";
-    private String publishTopic = "v1/devices/me/telemetry";
+    private String telemetryTopic = "v1/devices/me/telemetry";
 
     private String clientId = "ASIMLATOR";
     private String deviceToken = "30Y3Hf2lC3N43UqWusNC";
@@ -47,7 +44,7 @@ public class Main {
 
             try {
                 //publish telemetry
-                thbMqttClient.publish(publishTopic, msg);
+                thbMqttClient.publish(telemetryTopic, msg);
 
                 // simulate a delay()
                 TimeUnit.MILLISECONDS.sleep(2000);
